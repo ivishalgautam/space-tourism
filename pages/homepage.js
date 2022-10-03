@@ -1,26 +1,26 @@
-import { Head } from "next/document";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import homeBgDesktop from "/public/home/background-home-desktop.jpg";
 import homeBgTablet from "/public/home/background-home-tablet.jpg";
 import homeBgMobile from "/public/home/background-home-mobile.jpg";
 
 const homepage = () => {
-  const [innerWidth, setinnerWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : ""
-  );
-  console.log(innerWidth);
+  // const [innerWidth, setInnerWidth] = useState(
+  //   typeof window !== "undefined" ? window.innerWidth : ""
+  // );
+  const innerWidth = typeof window !== "undefined" ? window.innerWidth : "";
+  // console.log(innerWidth);
 
   return (
     <>
       <Container>
         {innerWidth > 870 ? (
-          <Image src={homeBgDesktop} layout="fill" />
+          <Image src={homeBgDesktop} layout="fill" alt="home desktop" />
         ) : innerWidth <= 870 ? (
-          <Image src={homeBgTablet} layout="fill" />
+          <Image src={homeBgTablet} layout="fill" alt="home tablet" />
         ) : (
-          <Image src={homeBgMobile} layout="fill" />
+          <Image src={homeBgMobile} layout="fill" alt="home mobile" />
         )}
         <Section>
           <div className="text-content">
@@ -64,6 +64,7 @@ const Section = styled.div`
     flex-direction: column;
     top: 20%;
     gap: 5em;
+    padding: 0 3em;
   }
   @media screen and (max-width: 428px) {
     top: 10%;

@@ -7,7 +7,7 @@ import logo from "/public/shared/logo.svg";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
-  const [burger, setBurger] = useState(true);
+  // const [burger, setBurger] = useState(true);
 
   const router = useRouter();
 
@@ -16,7 +16,7 @@ const Navbar = () => {
       <Container>
         <div className="logo">
           <Link href="/">
-            <Image src={logo} width={40} height={40} />
+            <Image src={logo} width={40} height={40} alt="space tourism" />
           </Link>
         </div>
         <nav className={`${active ? "active" : ""}`}>
@@ -54,7 +54,7 @@ const Navbar = () => {
                 setActive(!active);
               }}
             >
-              <g fill="#D0D6F9" fill-rule="evenodd">
+              <g fill="#D0D6F9" fillRule="evenodd">
                 <path d="M0 0h24v3H0zM0 9h24v3H0zM0 18h24v3H0z" />
               </g>
             </svg>
@@ -68,7 +68,7 @@ const Navbar = () => {
                 setActive(!active);
               }}
             >
-              <g fill="#D0D6F9" fill-rule="evenodd">
+              <g fill="#D0D6F9" fillRule="evenodd">
                 <path d="M2.575.954l16.97 16.97-2.12 2.122L.455 3.076z" />
                 <path d="M.454 17.925L17.424.955l2.122 2.12-16.97 16.97z" />
               </g>
@@ -98,7 +98,9 @@ const Container = styled.div`
       right: 0;
     }
   }
-
+  .logo {
+    margin-right: 1em;
+  }
   nav {
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(40.7742px);
