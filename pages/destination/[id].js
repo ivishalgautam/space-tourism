@@ -112,22 +112,22 @@ const Details = () => {
                   <nav>
                     <ul>
                       <li className={id === "Moon" ? "active" : ""}>
-                        <Link href="Moon">
+                        <Link href="/destination/Moon">
                           <a>Moon</a>
                         </Link>
                       </li>
                       <li className={id === "Mars" ? "active" : ""}>
-                        <Link href="Mars">
+                        <Link href="/destination/Mars">
                           <a>Mars</a>
                         </Link>
                       </li>
                       <li className={id === "Europa" ? "active" : ""}>
-                        <Link href="Europa">
+                        <Link href="/destination/Europa">
                           <a>Europa</a>
                         </Link>
                       </li>
                       <li className={id === "Titan" ? "active" : ""}>
-                        <Link href="Titan">
+                        <Link href="/destination/Titan">
                           <a>Titan</a>
                         </Link>
                       </li>
@@ -166,7 +166,7 @@ const Container = styled.div`
 `;
 const Section = styled.div`
   position: absolute;
-  top: 12%;
+  top: 15%;
   left: 0;
   width: 100vw;
   /* height: 100%; */
