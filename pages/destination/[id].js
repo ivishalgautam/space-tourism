@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Image from "next/image";
@@ -60,10 +60,25 @@ const data = [
 ];
 
 const Details = () => {
+  const [innerWidth, setInnerWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : ""
+  );
   const router = useRouter();
   const { id } = router.query;
 
-  const innerWidth = typeof window !== "undefined" ? window.innerWidth : "";
+  function getInnerWidth() {
+    setInnerWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", getInnerWidth);
+
+    return () => {
+      window.removeEventListener("resize", getInnerWidth);
+    };
+  }, []);
+
+  // const innerWidth = typeof window !== "undefined" ? window.innerWidth : "";
 
   return (
     <>
@@ -83,9 +98,21 @@ const Details = () => {
                 objectPosition="center"
               />
             ) : innerWidth <= 870 ? (
-              <Image src={bgTablet} layout="fill" alt="home tablet" />
+              <Image
+                src={bgTablet}
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+                alt="home tablet"
+              />
             ) : (
-              <Image src={bgMobile} layout="fill" alt="home mobile" />
+              <Image
+                src={bgMobile}
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+                alt="home mobile"
+              />
             )}
             <Section>
               <h1>
@@ -103,8 +130,8 @@ const Details = () => {
                         ? Titan
                         : Europa
                     }
-                    width={350}
-                    height={350}
+                    width={innerWidth > 870 ? 350 : 200}
+                    height={innerWidth > 870 ? 350 : 200}
                     objectFit="contain"
                     alt="destination"
                   />
@@ -162,23 +189,23 @@ const Details = () => {
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  /* height: auto; */
   font-family: "Barlow", sans-serif;
 `;
 const Section = styled.div`
   position: absolute;
-  top: 17%;
+  top: 18%;
   left: 0;
   width: 100vw;
-  /* height: 100%; */
+  min-height: 60%;
   display: flex;
   flex-direction: column;
   padding: 0 2em;
 
   @media screen and (max-width: 800px) {
-    top: 12%;
+    top: 10%;
   }
   @media screen and (max-width: 495px) {
+    top: 6%;
     padding: 1em;
   }
 
@@ -200,6 +227,7 @@ const Section = styled.div`
     @media screen and (max-width: 495px) {
       text-align: center;
       font-size: calc(1rem + 4px);
+      margin-bottom: 1.5em;
     }
   }
 
@@ -227,6 +255,9 @@ const Section = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+      @media screen and (max-width: 870px) {
+        margin: 0;
+      }
     }
     > .text-content {
       display: flex;

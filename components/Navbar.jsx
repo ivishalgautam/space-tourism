@@ -10,7 +10,8 @@ const Navbar = () => {
   // const [burger, setBurger] = useState(true);
 
   const router = useRouter();
-  // console.log(router);
+  let route = router.pathname.split("/");
+  console.log(route);
 
   return (
     <>
@@ -27,7 +28,11 @@ const Navbar = () => {
                 <a>HOME</a>
               </Link>
             </li>
-            <li className={router.pathname === "/destination" ? "active" : ""}>
+            <li
+              className={
+                router.pathname === "/destination/[id]" ? "active" : ""
+              }
+            >
               <Link href={"/destination/" + "Moon"}>
                 <a>DESTINATION</a>
               </Link>
@@ -47,7 +52,6 @@ const Navbar = () => {
         <div className="burger">
           {!active ? (
             <svg
-              // className={`${opened ? "isOpened" : "isClosed"}`}
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="21"
@@ -61,7 +65,6 @@ const Navbar = () => {
             </svg>
           ) : (
             <svg
-              // className={`${closed ? "isOpened" : "isClosed"}`}
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="21"
@@ -84,7 +87,7 @@ const Navbar = () => {
 const Container = styled.div`
   width: 95%;
   height: 4.5em;
-  position: relative;
+  position: absolute;
   top: 2.5em;
   right: 0;
   display: flex;

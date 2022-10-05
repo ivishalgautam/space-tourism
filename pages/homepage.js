@@ -1,16 +1,26 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import homeBgDesktop from "/public/home/background-home-desktop.jpg";
 import homeBgTablet from "/public/home/background-home-tablet.jpg";
 import homeBgMobile from "/public/home/background-home-mobile.jpg";
 
 const homepage = () => {
-  // const [innerWidth, setInnerWidth] = useState(
-  //   typeof window !== "undefined" ? window.innerWidth : ""
-  // );
-  const innerWidth = typeof window !== "undefined" ? window.innerWidth : "";
-  // console.log(innerWidth);
+  const [innerWidth, setInnerWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : ""
+  );
+
+  function getInnerWidth() {
+    setInnerWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", getInnerWidth);
+
+    return () => {
+      window.removeEventListener("resize", getInnerWidth);
+    };
+  }, []);
 
   return (
     <>
