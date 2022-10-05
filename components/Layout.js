@@ -14,6 +14,7 @@ const Layout = ({ children }) => {
 const Container = styled.div`
   position: relative;
   min-height: 100vh;
+  height: 100vh;
   width: 100vw;
 `;
 

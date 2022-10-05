@@ -10,6 +10,7 @@ const Navbar = () => {
   // const [burger, setBurger] = useState(true);
 
   const router = useRouter();
+  // console.log(router);
 
   return (
     <>
@@ -27,7 +28,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className={router.pathname === "/destination" ? "active" : ""}>
-              <Link href="/destination">
+              <Link href={"/destination/" + "Moon"}>
                 <a>DESTINATION</a>
               </Link>
             </li>
@@ -117,11 +118,11 @@ const Container = styled.div`
       background-color: rgba(151, 151, 151, 1);
     }
     @media screen and (max-width: 900px) {
-      & {
+      /* & {
         min-width: 50%;
-      }
+      } */
     }
-    @media screen and (max-width: 428px) {
+    @media screen and (max-width: 495px) {
       display: none;
       position: absolute;
       top: 0;
@@ -151,7 +152,7 @@ const Container = styled.div`
           gap: 1em;
         }
       }
-      @media screen and (max-width: 428px) {
+      @media screen and (max-width: 495px) {
         & {
           flex-direction: column;
           justify-content: flex-start;
@@ -172,13 +173,13 @@ const Container = styled.div`
       }
       &.active {
         border-bottom: 2px solid #fff;
-        @media screen and (max-width: 428px) {
+        @media screen and (max-width: 495px) {
           & {
             border: none;
           }
         }
       }
-      @media screen and (max-width: 428px) {
+      @media screen and (max-width: 495px) {
         & {
           height: auto;
           padding: 0;
@@ -202,7 +203,7 @@ const Container = styled.div`
             margin: 0;
           }
         }
-        @media screen and (max-width: 428px) {
+        @media screen and (max-width: 495px) {
           & {
             content: counter(li, decimal-leading-zero);
             margin-right: 10px;
@@ -216,7 +217,7 @@ const Container = styled.div`
         color: #d0d6f9;
         font-family: "Barlow Condensed", sans-serif;
 
-        @media screen and (max-width: 428px) {
+        @media screen and (max-width: 495px) {
           & {
             font-size: 1rem;
             line-height: 19px;
@@ -231,7 +232,7 @@ const Container = styled.div`
     display: none;
     margin-right: 1.4em;
     cursor: pointer;
-    @media screen and (max-width: 428px) {
+    @media screen and (max-width: 495px) {
       & {
         display: block;
       }

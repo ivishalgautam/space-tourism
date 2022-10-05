@@ -16,11 +16,29 @@ const homepage = () => {
     <>
       <Container>
         {innerWidth > 870 ? (
-          <Image src={homeBgDesktop} layout="fill" alt="home desktop" />
+          <Image
+            src={homeBgDesktop}
+            layout="fill"
+            alt="home desktop"
+            objectFit="cover"
+            objectPosition={"center"}
+          />
         ) : innerWidth <= 870 ? (
-          <Image src={homeBgTablet} layout="fill" alt="home tablet" />
+          <Image
+            src={homeBgTablet}
+            layout="fill"
+            alt="home tablet"
+            objectFit="cover"
+            objectPosition={"center"}
+          />
         ) : (
-          <Image src={homeBgMobile} layout="fill" alt="home mobile" />
+          <Image
+            src={homeBgMobile}
+            layout="fill"
+            alt="home mobile"
+            objectFit="cover"
+            objectPosition={"center"}
+          />
         )}
         <Section>
           <div className="text-content">
@@ -66,8 +84,8 @@ const Section = styled.div`
     gap: 5em;
     padding: 0 3em;
   }
-  @media screen and (max-width: 428px) {
-    top: 10%;
+  @media screen and (max-width: 495px) {
+    top: 20%;
     padding: 0 1em;
   }
 
