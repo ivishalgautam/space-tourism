@@ -105,6 +105,7 @@ const Details = () => {
                     width={350}
                     height={350}
                     objectFit="contain"
+                    alt="destination"
                   />
                 </div>
                 <div className="text-content">
