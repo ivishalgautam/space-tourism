@@ -197,6 +197,7 @@ const Section = styled.div`
     }
     @media screen and (max-width: 495px) {
       text-align: center;
+      font-size: calc(1rem + 4px);
     }
   }
 
@@ -261,6 +262,9 @@ const Section = styled.div`
             font-family: "Barlow Condensed", sans-serif;
             letter-spacing: 2.7px;
             color: #d0d6f9;
+            @media screen and (max-width: 495px) {
+              font-size: calc(1rem - 2px);
+            }
           }
         }
       }
@@ -273,6 +277,9 @@ const Section = styled.div`
           @media screen and (max-width: 870px) {
             font-size: 5rem;
           }
+          @media screen and (max-width: 495px) {
+            font-size: 3.5rem;
+          }
         }
         p {
           font-size: calc(1rem + 2px);
@@ -280,6 +287,9 @@ const Section = styled.div`
           color: #d0d6f9;
           @media screen and (max-width: 870px) {
             font-size: 1rem;
+          }
+          @media screen and (max-width: 495px) {
+            font-size: calc(1rem - 1px);
           }
         }
       }
