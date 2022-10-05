@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
+import { v4 as uuidv4 } from "uuid";
 import bgDesktop from "/public/destination/background-destination-desktop.jpg";
 import bgTablet from "/public/destination/background-destination-tablet.jpg";
 import bgMobile from "/public/destination/background-destination-mobile.jpg";
@@ -71,7 +72,7 @@ const Details = () => {
           return elem.name === id;
         })
         .map((item) => (
-          <Container>
+          <Container key={item.name}>
             {innerWidth > 870 ? (
               <Image
                 src={bgDesktop}
@@ -166,7 +167,7 @@ const Container = styled.div`
 `;
 const Section = styled.div`
   position: absolute;
-  top: 15%;
+  top: 17%;
   left: 0;
   width: 100vw;
   /* height: 100%; */
@@ -175,7 +176,7 @@ const Section = styled.div`
   padding: 0 2em;
 
   @media screen and (max-width: 800px) {
-    top: 7%;
+    top: 12%;
   }
   @media screen and (max-width: 495px) {
     padding: 1em;
