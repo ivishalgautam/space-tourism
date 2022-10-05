@@ -7,11 +7,8 @@ import logo from "/public/shared/logo.svg";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
-  // const [burger, setBurger] = useState(true);
 
   const router = useRouter();
-  let route = router.pathname.split("/");
-  console.log(route);
 
   return (
     <>

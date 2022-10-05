@@ -5,7 +5,7 @@ import homeBgDesktop from "/public/home/background-home-desktop.jpg";
 import homeBgTablet from "/public/home/background-home-tablet.jpg";
 import homeBgMobile from "/public/home/background-home-mobile.jpg";
 
-const homepage = () => {
+const Homepage = () => {
   const [innerWidth, setInnerWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : ""
   );
@@ -173,4 +173,4 @@ const Section = styled.div`
   }
 `;
 
-export default homepage;
+export default Homepage;
