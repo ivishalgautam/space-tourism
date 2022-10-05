@@ -195,6 +195,9 @@ const Section = styled.div`
     @media screen and (max-width: 800px) {
       font-size: calc(1rem + 4px);
     }
+    @media screen and (max-width: 495px) {
+      text-align: center;
+    }
   }
 
   > .content {
