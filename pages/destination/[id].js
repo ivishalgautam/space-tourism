@@ -131,10 +131,10 @@ const Details = () => {
                         : Europa
                     }
                     width={
-                      innerWidth > 870 ? 350 : innerWidth < 870 ? 300 : 170
+                      innerWidth > 870 ? 350 : innerWidth > 495 ? 300 : 170
                     }
                     height={
-                      innerWidth > 870 ? 350 : innerWidth < 870 ? 300 : 170
+                      innerWidth > 870 ? 350 : innerWidth > 495 ? 300 : 170
                     }
                     objectFit="contain"
                     alt="destination"
