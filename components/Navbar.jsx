@@ -117,11 +117,6 @@ const Container = styled.div`
       height: 1px;
       background-color: rgba(151, 151, 151, 1);
     }
-    @media screen and (max-width: 900px) {
-      /* & {
-        min-width: 50%;
-      } */
-    }
     @media screen and (max-width: 495px) {
       display: none;
       position: absolute;
@@ -167,10 +162,6 @@ const Container = styled.div`
     li {
       height: 100%;
       padding: 1.5em 0;
-      &:hover {
-        border-bottom: 1px solid #ffffff;
-        mix-blend-mode: normal;
-      }
       &.active {
         border-bottom: 2px solid #fff;
         @media screen and (max-width: 495px) {

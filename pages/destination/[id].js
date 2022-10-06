@@ -197,6 +197,9 @@ const Container = styled.div`
   @media screen and (max-width: 870px) {
     min-height: 141vh;
   }
+  @media screen and (max-width: 495px) {
+    min-height: 125vh;
+  }
 `;
 const Section = styled.div`
   position: absolute;
