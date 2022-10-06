@@ -136,6 +136,7 @@ const Section = styled.div`
       margin: 0;
       @media screen and (max-width: 510px) {
         font-size: 5rem;
+        line-height: 6.25rem;
       }
     }
     .para2 {
@@ -143,6 +144,7 @@ const Section = styled.div`
       line-height: 2rem;
       @media screen and (max-width: 870px) {
         font-size: 1rem;
+        line-height: calc(2rem - 7px);
       }
       @media screen and (max-width: 510px) {
         font-size: calc(1rem - 1px);
