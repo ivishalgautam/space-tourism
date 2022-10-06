@@ -92,7 +92,6 @@ const Details = () => {
               <Image
                 src={bgDesktop}
                 layout="fill"
-                height="100%"
                 alt="home desktop"
                 objectFit="cover"
                 objectPosition="center"
@@ -114,6 +113,7 @@ const Details = () => {
                 alt="home mobile"
               />
             )}
+
             <Section>
               <h1>
                 <span>01</span> Pick your destination
@@ -130,8 +130,12 @@ const Details = () => {
                         ? Titan
                         : Europa
                     }
-                    width={innerWidth > 870 ? 350 : 200}
-                    height={innerWidth > 870 ? 350 : 200}
+                    width={
+                      innerWidth > 870 ? 350 : innerWidth < 870 ? 300 : 170
+                    }
+                    height={
+                      innerWidth > 870 ? 350 : innerWidth < 870 ? 300 : 170
+                    }
                     objectFit="contain"
                     alt="destination"
                   />
@@ -190,6 +194,9 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   font-family: "Barlow", sans-serif;
+
+  > .sectionBg-container {
+  }
 `;
 const Section = styled.div`
   position: absolute;
@@ -215,7 +222,7 @@ const Section = styled.div`
     font-family: "Barlow Condensed", sans-serif;
     letter-spacing: 4.725px;
     text-transform: uppercase;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     > span {
       margin-right: 0.5em;
       font-weight: 700;
@@ -226,8 +233,9 @@ const Section = styled.div`
     }
     @media screen and (max-width: 495px) {
       text-align: center;
-      font-size: calc(1rem + 4px);
+      font-size: 1rem;
       margin-bottom: 1.5em;
+      line-height: 19.2px;
     }
   }
 
@@ -281,10 +289,6 @@ const Section = styled.div`
 
         > li {
           padding-bottom: 0.5em;
-
-          &:hover {
-            border-bottom: 1px solid #ffffff;
-          }
           &.active {
             border-bottom: 2px solid #ffffff;
           }
@@ -307,6 +311,7 @@ const Section = styled.div`
           font-size: 6.25rem;
           margin: 0;
           font-family: "Bellefair", sans-serif;
+          text-transform: uppercase;
           @media screen and (max-width: 870px) {
             font-size: 5rem;
           }
@@ -320,9 +325,12 @@ const Section = styled.div`
           color: #d0d6f9;
           @media screen and (max-width: 870px) {
             font-size: 1rem;
+            line-height: calc(2rem - 4px);
           }
           @media screen and (max-width: 495px) {
             font-size: calc(1rem - 1px);
+            line-height: calc(2rem - 7px);
+            padding-bottom: 1em;
           }
         }
       }
@@ -330,6 +338,7 @@ const Section = styled.div`
         display: flex;
         align-items: center;
         gap: 4em;
+        margin-top: 1em;
         @media screen and (max-width: 870px) {
           justify-content: space-around;
           gap: 0;
@@ -343,8 +352,15 @@ const Section = styled.div`
           p {
             font-size: calc(1rem - 2px);
             color: #d0d6f9;
-            letter-spacing: 2.3625px;
             text-transform: uppercase;
+            letter-spacing: 2.36px;
+
+            @media screen and (max-width: 870px) {
+              line-height: 2.36px;
+            }
+            @media screen and (max-width: 495px) {
+              line-height: 16.8px;
+            }
           }
           h1 {
             font-family: "Bellefair", sans-serif;
@@ -352,6 +368,9 @@ const Section = styled.div`
             font-size: calc(2rem - 4px);
             line-height: 2rem;
             font-weight: 400;
+            @media screen and (max-width: 870px) {
+              font-size: calc(2rem - 4px);
+            }
           }
         }
       }
