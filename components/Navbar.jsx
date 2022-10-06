@@ -35,7 +35,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className={router.pathname === "/crew" ? "active" : ""}>
-              <Link href="/crew">
+              <Link href="/Crew">
                 <a>CREW</a>
               </Link>
             </li>

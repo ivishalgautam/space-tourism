@@ -31,7 +31,7 @@ const Homepage = () => {
             layout="fill"
             alt="home desktop"
             objectFit="cover"
-            objectPosition={"center"}
+            objectPosition="center"
           />
         ) : innerWidth <= 870 ? (
           <Image
@@ -39,7 +39,7 @@ const Homepage = () => {
             layout="fill"
             alt="home tablet"
             objectFit="cover"
-            objectPosition={"center"}
+            objectPosition="center"
           />
         ) : (
           <Image
@@ -47,7 +47,7 @@ const Homepage = () => {
             layout="fill"
             alt="home mobile"
             objectFit="cover"
-            objectPosition={"center"}
+            objectPosition="center"
           />
         )}
         <Section>
@@ -70,13 +70,19 @@ const Homepage = () => {
   );
 };
 const Container = styled.div`
-  /* position: relative; */
-  background-position: center;
-  background-size: cover;
   max-width: 90%;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   font-family: "Barlow", sans-serif;
+  @media screen and (max-width: 870px) {
+    min-height: 145vh;
+  }
+  @media screen and (max-width: 510px) {
+    min-height: 120vh;
+  }
+  @media screen and (max-width: 510px) {
+    min-height: 100vh;
+  }
 `;
 
 const Section = styled.div`
@@ -88,6 +94,9 @@ const Section = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 10em;
+  @media screen and (max-width: 1050px) {
+    padding: 0 5em;
+  }
   @media screen and (max-width: 870px) {
     flex-direction: column;
     top: 20%;
@@ -160,6 +169,9 @@ const Section = styled.div`
     margin-top: auto;
     margin-bottom: 4em;
     margin-left: 1em;
+    @media screen and (max-width: 870px) {
+      margin: 0;
+    }
     > div {
       display: flex;
       align-items: center;
@@ -167,10 +179,18 @@ const Section = styled.div`
       color: #0b0d17;
       font-size: 2rem;
       font-family: "Bellefair", sans-serif;
-      width: 6em;
-      height: 6em;
+      width: 274px;
+      height: 274px;
       background-color: #ffffff;
       border-radius: 50%;
+      @media screen and (max-width: 870px) {
+        width: 274px;
+        height: 274px;
+      }
+      @media screen and (max-width: 495px) {
+        width: 174px;
+        height: 174px;
+      }
     }
   }
 `;

@@ -192,10 +192,10 @@ const Details = () => {
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 110vh;
   font-family: "Barlow", sans-serif;
-
-  > .sectionBg-container {
+  @media screen and (max-width: 870px) {
+    min-height: 141vh;
   }
 `;
 const Section = styled.div`
@@ -203,13 +203,16 @@ const Section = styled.div`
   top: 18%;
   left: 0;
   width: 100vw;
-  min-height: 60%;
+  min-height: 82%;
   display: flex;
   flex-direction: column;
   padding: 0 2em;
 
   @media screen and (max-width: 800px) {
-    top: 10%;
+    top: 14%;
+  }
+  @media screen and (max-width: 870px) {
+    top: 13%;
   }
   @media screen and (max-width: 495px) {
     top: 6%;
