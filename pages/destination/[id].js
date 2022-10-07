@@ -11,6 +11,7 @@ import Moon from "/public/destination/image-moon.webp";
 import Mars from "/public/destination/image-mars.webp";
 import Europa from "/public/destination/image-europa.webp";
 import Titan from "/public/destination/image-titan.webp";
+import { motion } from "framer-motion";
 
 const data = [
   {
@@ -78,7 +79,11 @@ const Details = () => {
     };
   }, []);
 
-  // const innerWidth = typeof window !== "undefined" ? window.innerWidth : "";
+  const variants = {
+    hidden: { opacity: 0, x: -200, y: 0 },
+    enter: { opacity: 1, x: 0, y: 0 },
+    exit: { opacity: 0, x: 0, y: -200 },
+  };
 
   return (
     <>
@@ -87,7 +92,14 @@ const Details = () => {
           return elem.name === id;
         })
         .map((item) => (
-          <Container key={item.name}>
+          <Container
+            key={item.name}
+            variants={variants}
+            initial="hidden"
+            animate="enter"
+            exit="exit"
+            transition={{ type: "linear" }}
+          >
             {innerWidth > 870 ? (
               <Image
                 src={bgDesktop}
@@ -119,7 +131,11 @@ const Details = () => {
                 <span>01</span> Pick your destination
               </h1>
               <div className="content">
-                <div className="destinationBg">
+                <motion.div
+                  className="destinationBg"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <Image
                     src={
                       id === "Moon"
@@ -139,7 +155,7 @@ const Details = () => {
                     objectFit="contain"
                     alt="destination"
                   />
-                </div>
+                </motion.div>
                 <div className="text-content">
                   <nav>
                     <ul>
@@ -190,10 +206,11 @@ const Details = () => {
   );
 };
 
-const Container = styled.div`
-  width: 100%;
+const Container = styled(motion.div)`
+  max-width: 100%;
   min-height: 110vh;
   font-family: "Barlow", sans-serif;
+  overflow: hidden;
   @media screen and (max-width: 870px) {
     min-height: 141vh;
   }

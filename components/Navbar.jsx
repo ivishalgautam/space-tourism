@@ -1,31 +1,63 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import logo from "/public/shared/logo.svg";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
+  const [innerWidth, setInnerWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : ""
+  );
+
+  function getInnerWidth() {
+    setInnerWidth(window.innerWidth);
+  }
 
   const router = useRouter();
 
+  useEffect(() => {
+    window.addEventListener("resize", getInnerWidth);
+
+    return () => {
+      window.removeEventListener("resize", getInnerWidth);
+    };
+  }, []);
+
   return (
     <>
-      <Container>
+      <Container
+        initial={{ y: "-100%" }}
+        animate={{ y: 0 }}
+        transition={{ delay: "1s" }}
+      >
         <div className="logo">
           <Link href="/">
             <Image src={logo} width={40} height={40} alt="space tourism" />
           </Link>
         </div>
-        <nav className={`${active ? "active" : ""}`}>
+        <motion.nav
+          initial={{
+            y: innerWidth <= 495 ? 0 : -120,
+            x: innerWidth <= 495 ? 100 : 0,
+          }}
+          animate={{ y: 0, x: active ? 0 : innerWidth <= 495 ? 350 : 0 }}
+          transition={{ delay: innerWidth > 495 ? 0.5 : 0 }}
+          // className={`${active ? "active" : ""}`}
+        >
           <ol className="nav-list">
-            <li className={router.pathname === "/" ? "active" : ""}>
+            <motion.li
+              onClick={() => setActive(!active)}
+              className={router.pathname === "/" ? "active" : ""}
+            >
               <Link href="/">
                 <a>HOME</a>
               </Link>
-            </li>
-            <li
+            </motion.li>
+            <motion.li
+              onClick={() => setActive(!active)}
               className={
                 router.pathname === "/destination/[id]" ? "active" : ""
               }
@@ -33,19 +65,25 @@ const Navbar = () => {
               <Link href={"/destination/" + "Moon"}>
                 <a>DESTINATION</a>
               </Link>
-            </li>
-            <li className={router.pathname === "/crew" ? "active" : ""}>
+            </motion.li>
+            <motion.li
+              onClick={() => setActive(!active)}
+              className={router.pathname === "/crew" ? "active" : ""}
+            >
               <Link href="/Crew">
                 <a>CREW</a>
               </Link>
-            </li>
-            <li className={router.pathname === "/technolodgy" ? "active" : ""}>
+            </motion.li>
+            <motion.li
+              onClick={() => setActive(!active)}
+              className={router.pathname === "/technolodgy" ? "active" : ""}
+            >
               <Link href="/technolodgy">
                 <a>TECHNOLODGY</a>
               </Link>
-            </li>
+            </motion.li>
           </ol>
-        </nav>
+        </motion.nav>
         <div className="burger">
           {!active ? (
             <svg
@@ -81,7 +119,7 @@ const Navbar = () => {
   );
 };
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 95%;
   height: 4.5em;
   position: absolute;
@@ -118,7 +156,7 @@ const Container = styled.div`
       background-color: rgba(151, 151, 151, 1);
     }
     @media screen and (max-width: 495px) {
-      display: none;
+      /* display: none; */
       position: absolute;
       top: 0;
       right: 0;

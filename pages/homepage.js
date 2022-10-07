@@ -4,6 +4,7 @@ import styled from "styled-components";
 import homeBgDesktop from "/public/home/background-home-desktop.jpg";
 import homeBgTablet from "/public/home/background-home-tablet.jpg";
 import homeBgMobile from "/public/home/background-home-mobile.jpg";
+import { motion } from "framer-motion";
 
 const Homepage = () => {
   const [innerWidth, setInnerWidth] = useState(
@@ -22,9 +23,21 @@ const Homepage = () => {
     };
   }, []);
 
+  const variants = {
+    hidden: { opacity: 0, x: -200, y: 0 },
+    enter: { opacity: 1, x: 0, y: 0 },
+    exit: { opacity: 0, x: 0, y: -100 },
+  };
+
   return (
     <>
-      <Container>
+      <Container
+        variants={variants}
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        transition={{ type: "linear" }}
+      >
         {innerWidth > 870 ? (
           <Image
             src={homeBgDesktop}
@@ -69,7 +82,7 @@ const Homepage = () => {
     </>
   );
 };
-const Container = styled.div`
+const Container = styled(motion.div)`
   max-width: 90%;
   width: 100%;
   min-height: 100vh;
@@ -80,7 +93,7 @@ const Container = styled.div`
   @media screen and (max-width: 510px) {
     min-height: 120vh;
   }
-  @media screen and (max-width: 510px) {
+  @media screen and (max-width: 495px) {
     min-height: 100vh;
   }
 `;
