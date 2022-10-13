@@ -79,12 +79,6 @@ const Details = () => {
     };
   }, []);
 
-  const variants = {
-    hidden: { opacity: 0, x: -200, y: 0 },
-    enter: { opacity: 1, x: 0, y: 0 },
-    exit: { opacity: 0, x: 0, y: -200 },
-  };
-
   return (
     <>
       {data
@@ -92,14 +86,7 @@ const Details = () => {
           return elem.name === id;
         })
         .map((item) => (
-          <Container
-            key={item.name}
-            variants={variants}
-            initial="hidden"
-            animate="enter"
-            exit="exit"
-            transition={{ type: "linear" }}
-          >
+          <Container key={item.name}>
             {innerWidth > 870 ? (
               <Image
                 src={bgDesktop}
@@ -153,6 +140,7 @@ const Details = () => {
                       innerWidth > 870 ? 350 : innerWidth > 495 ? 300 : 170
                     }
                     objectFit="contain"
+                    objectPosition="center"
                     alt="destination"
                   />
                 </motion.div>
@@ -206,24 +194,24 @@ const Details = () => {
   );
 };
 
-const Container = styled(motion.div)`
+const Container = styled.div`
   max-width: 100%;
-  min-height: 110vh;
+  height: 100%;
   font-family: "Barlow", sans-serif;
   overflow: hidden;
   @media screen and (max-width: 870px) {
-    min-height: 141vh;
+    /* min-height: 141vh; */
   }
   @media screen and (max-width: 495px) {
-    min-height: 125vh;
+    /* min-height: 125vh; */
   }
 `;
 const Section = styled.div`
   position: absolute;
   top: 18%;
   left: 0;
-  width: 100vw;
-  min-height: 82%;
+  width: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   padding: 0 2em;

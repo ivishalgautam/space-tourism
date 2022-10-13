@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import "../styles/globals.css";
 import Layout from "/components/Layout";

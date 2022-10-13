@@ -23,78 +23,63 @@ const Homepage = () => {
     };
   }, []);
 
-  const variants = {
-    hidden: { opacity: 0, x: -200, y: 0 },
-    enter: { opacity: 1, x: 0, y: 0 },
-    exit: { opacity: 0, x: 0, y: -100 },
-  };
-
   return (
-    <>
-      <Container
-        variants={variants}
-        initial="hidden"
-        animate="enter"
-        exit="exit"
-        transition={{ type: "linear" }}
-      >
-        {innerWidth > 870 ? (
-          <Image
-            src={homeBgDesktop}
-            layout="fill"
-            alt="home desktop"
-            objectFit="cover"
-            objectPosition="center"
-          />
-        ) : innerWidth <= 870 ? (
-          <Image
-            src={homeBgTablet}
-            layout="fill"
-            alt="home tablet"
-            objectFit="cover"
-            objectPosition="center"
-          />
-        ) : (
-          <Image
-            src={homeBgMobile}
-            layout="fill"
-            alt="home mobile"
-            objectFit="cover"
-            objectPosition="center"
-          />
-        )}
-        <Section>
-          <div className="text-content">
-            <p className="para1">So, you want to travel to</p>
-            <h1>Space</h1>
-            <p className="para2">
-              Let’s face it; if you want to go to space, you might as well
-              genuinely go to outer space and not hover kind of on the edge of
-              it. Well sit back, and relax because we’ll give you a truly out of
-              this world experience!
-            </p>
-          </div>
-          <div className="explore">
-            <div>Explore</div>
-          </div>
-        </Section>
-      </Container>
-    </>
+    <Container>
+      {innerWidth > 870 ? (
+        <Image
+          src={homeBgDesktop}
+          layout="fill"
+          alt="home desktop"
+          objectFit="cover"
+          objectPosition="center"
+        />
+      ) : innerWidth <= 870 ? (
+        <Image
+          src={homeBgTablet}
+          layout="fill"
+          alt="home tablet"
+          objectFit="cover"
+          objectPosition="center"
+        />
+      ) : (
+        <Image
+          src={homeBgMobile}
+          layout="fill"
+          alt="home mobile"
+          objectFit="cover"
+          objectPosition="center"
+        />
+      )}
+      <Section>
+        <div className="text-content">
+          <p className="para1">So, you want to travel to</p>
+          <h1>Space</h1>
+          <p className="para2">
+            Let’s face it; if you want to go to space, you might as well
+            genuinely go to outer space and not hover kind of on the edge of it.
+            Well sit back, and relax because we’ll give you a truly out of this
+            world experience!
+          </p>
+        </div>
+        <div className="explore">
+          <div>Explore</div>
+        </div>
+      </Section>
+    </Container>
   );
 };
-const Container = styled(motion.div)`
-  max-width: 90%;
+const Container = styled.div`
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   font-family: "Barlow", sans-serif;
   @media screen and (max-width: 870px) {
-    min-height: 145vh;
+    /* min-height: 145vh; */
   }
   @media screen and (max-width: 510px) {
-    min-height: 120vh;
+    /* min-height: 120vh; */
   }
   @media screen and (max-width: 495px) {
-    min-height: 100vh;
+    /* min-height: 100vh; */
   }
 `;
 
