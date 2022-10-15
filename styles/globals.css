@@ -12,10 +12,48 @@ a {
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Barlow", sans-serif;
 }
 
 body {
   overflow-x: hidden;
+}
+
+.swiper {
+  position: relative;
+}
+.swiper-pagination {
+  position: absolute;
+  left: 0;
+  bottom: 3em !important;
+  width: 50% !important;
+  text-align: left !important;
+}
+@media screen and (max-width: 990px) {
+  .swiper-pagination {
+    top: 25% !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .swiper-pagination {
+    top: 57% !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .swiper-pagination {
+    top: 53% !important;
+  }
+}
+.swiper-pagination-bullet {
+  background: #ffffff !important;
+  opacity: 0.17;
+}
+.swiper-pagination-bullet-active {
+  background: #ffffff !important;
 }
 
 @media (prefers-color-scheme: dark) {

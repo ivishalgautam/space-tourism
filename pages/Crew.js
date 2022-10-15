@@ -3,10 +3,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Douglas from "/public/crew/image-douglas-hurley.webp";
-import Mark from "/public/crew/image-mark-shuttleworth.webp";
-import Victor from "/public/crew/image-victor-glover.webp";
-import Anousheh from "/public/crew/image-anousheh-ansari.webp";
+import { Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
 
 import bgDesktop from "/public/crew/background-crew-desktop.jpg";
 import bgTablet from "/public/crew/background-crew-tablet.jpg";
@@ -95,14 +94,20 @@ const Crew = () => {
         />
       )}
       <CrewContainer>
-        <h1>
+        <h1 className="section-heading">
           <span>02</span>Meet your crew
         </h1>
-        <Swiper spaceBetween={50} slidesPerView={1}>
+        <Swiper
+          modules={[Pagination]}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+        >
           {data.map((crew) => {
             return (
               <SwiperSlide>
-                <CrewComp crew={crew} />
+                <CrewComp crew={crew} innerWidth={innerWidth} />
               </SwiperSlide>
             );
           })}
@@ -116,11 +121,48 @@ const Container = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 0 10em; */
 `;
 const CrewContainer = styled.div`
-  width: 100%;
+  position: relative;
+  min-width: 80%;
+  width: 80%;
   height: 100%;
-  margin-top: 10%;
+  margin-top: 25%;
+  @media screen and (max-width: 990px) {
+    width: 90%;
+    margin-top: 35%;
+  }
+  @media screen and (max-width: 700px) {
+    width: 90%;
+    margin-top: 40%;
+  }
+
+  .section-heading {
+    span {
+      font-weight: 700;
+      margin-right: 0.5em;
+      opacity: 0.25;
+    }
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 4.725px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: "Barlow Condensed", sans-serif;
+    @media screen and (max-width: 990px) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+    @media screen and (max-width: 700px) {
+      text-align: center;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
 `;
 
 export default Crew;
