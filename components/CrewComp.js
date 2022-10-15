@@ -11,7 +11,7 @@ import "swiper/css";
 const CrewComp = ({ crew, innerWidth }) => {
   return (
     <>
-      <FlexContainer key={crew.name}>
+      <FlexContainer>
         <div className="text-content">
           <h2 className="role">{crew.role}</h2>
           <h1 className="name">{crew.name}</h1>

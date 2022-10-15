@@ -106,7 +106,7 @@ const Crew = () => {
         >
           {data.map((crew) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={crew.name}>
                 <CrewComp crew={crew} innerWidth={innerWidth} />
               </SwiperSlide>
             );
