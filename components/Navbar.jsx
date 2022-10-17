@@ -78,7 +78,7 @@ const Navbar = () => {
               onClick={() => setActive(!active)}
               className={router.pathname === "/technolodgy" ? "active" : ""}
             >
-              <Link href="/technolodgy">
+              <Link href="/Technology">
                 <a>TECHNOLODGY</a>
               </Link>
             </motion.li>
