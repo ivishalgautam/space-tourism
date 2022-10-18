@@ -167,7 +167,7 @@ const Technologies = styled.div`
       top: 49% !important;
       gap: 0.5em;
     }
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 440px) {
       top: 40% !important;
     }
     @media screen and (max-width: 356px) {
