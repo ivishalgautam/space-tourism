@@ -122,7 +122,7 @@ const Technologies = styled.div`
   top: 20%;
   @media screen and (max-width: 992px) {
     width: 100%;
-    top: 9%;
+    top: 12%;
   }
   .section-heading {
     line-height: 34px;
