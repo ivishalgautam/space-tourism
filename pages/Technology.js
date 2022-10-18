@@ -94,16 +94,10 @@ const Technology = () => {
         <h1 className="section-heading">
           <span>03</span>Space launch 101
         </h1>
-        <Swiper
-          modules={[Pagination]}
-          //   slidesPerView={1}
-          //   navigation
-          pagination={pagination}
-          scrollbar={{ draggable: true }}
-        >
+        <Swiper modules={[Pagination]} pagination={pagination}>
           {data.map((item) => (
             <SwiperSlide key={item.name}>
-              <TechnologyCard item={item} />
+              <TechnologyCard item={item} innerWidth={innerWidth} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -118,15 +112,90 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-end;
 `;
 const Technologies = styled.div`
   position: relative;
-  min-width: 80%;
-  width: 80%;
+  width: 90%;
   height: 100%;
-  margin-top: 25%;
+  top: 20%;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    top: 9%;
+  }
+  .section-heading {
+    line-height: 34px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 4.725px;
+    text-transform: uppercase;
+    font-family: "Barlow Condensed", sans-serif;
+    @media screen and (max-width: 992px) {
+      line-height: 24px;
+      font-size: 20px;
+      margin-bottom: 2em;
+      padding-left: 2em;
+    }
+    @media screen and (max-width: 992px) {
+      font-size: 16px;
+    }
+    span {
+      font-weight: 700;
+      opacity: 0.25;
+      margin-right: 0.5em;
+    }
+  }
+  .swiper-pagination {
+    height: 80%;
+    width: 8% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    @media screen and (max-width: 992px) {
+      flex-direction: row;
+      position: absolute;
+      top: 52% !important;
+      gap: 1em;
+      height: 10%;
+      width: 100% !important;
+    }
+    @media screen and (max-width: 640px) {
+      top: 49% !important;
+      gap: 0.5em;
+    }
+    @media screen and (max-width: 400px) {
+      top: 40% !important;
+    }
+    @media screen and (max-width: 356px) {
+      top: 36% !important;
+    }
+    > span {
+      color: #ffffff !important;
+      opacity: 1 !important;
+      background: transparent !important;
+      padding: 1em;
+      font-size: 32px;
+      line-height: 37px;
+      font-weight: 400;
+      font-family: "Bellefair", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid hsla(0, 100%, 100%, 0.25);
+      @media screen and (max-width: 992px) {
+        padding: 1em;
+        font-size: 24px;
+      }
+    }
+    .swiper-pagination-bullet-active {
+      background: #ffffff !important;
+      color: #0b0d17 !important;
+    }
+  }
 `;
 
 export default Technology;

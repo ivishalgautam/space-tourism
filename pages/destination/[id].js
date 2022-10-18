@@ -199,12 +199,6 @@ const Container = styled.div`
   height: 100%;
   font-family: "Barlow", sans-serif;
   overflow: hidden;
-  @media screen and (max-width: 870px) {
-    /* min-height: 141vh; */
-  }
-  @media screen and (max-width: 495px) {
-    /* min-height: 125vh; */
-  }
 `;
 const Section = styled.div`
   position: absolute;
@@ -260,7 +254,7 @@ const Section = styled.div`
     @media screen and (max-width: 870px) {
       flex-direction: column;
       top: 20%;
-      gap: 1em;
+      gap: 4em;
       padding: 0 3em;
     }
     @media screen and (max-width: 495px) {
@@ -287,6 +281,7 @@ const Section = styled.div`
         > * {
           text-align: center;
         }
+        gap: 2em;
       }
       nav ul {
         list-style: none;
@@ -296,6 +291,7 @@ const Section = styled.div`
         gap: 1em;
         @media screen and (max-width: 800px) {
           justify-content: center;
+          gap: 2em;
         }
 
         > li {
@@ -324,7 +320,8 @@ const Section = styled.div`
           font-family: "Bellefair", sans-serif;
           text-transform: uppercase;
           @media screen and (max-width: 870px) {
-            font-size: 5rem;
+            font-size: 80px;
+            line-height: 92px;
           }
           @media screen and (max-width: 495px) {
             font-size: 3.5rem;
@@ -356,6 +353,7 @@ const Section = styled.div`
         }
         @media screen and (max-width: 495px) {
           flex-direction: column;
+          gap: 2em;
         }
 
         > .distance,
@@ -368,6 +366,7 @@ const Section = styled.div`
 
             @media screen and (max-width: 870px) {
               line-height: 2.36px;
+              margin-bottom: 1em;
             }
             @media screen and (max-width: 495px) {
               line-height: 16.8px;

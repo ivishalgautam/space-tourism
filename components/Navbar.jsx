@@ -68,7 +68,7 @@ const Navbar = () => {
             </motion.li>
             <motion.li
               onClick={() => setActive(!active)}
-              className={router.pathname === "/crew" ? "active" : ""}
+              className={router.pathname === "/Crew" ? "active" : ""}
             >
               <Link href="/Crew">
                 <a>CREW</a>
@@ -76,10 +76,10 @@ const Navbar = () => {
             </motion.li>
             <motion.li
               onClick={() => setActive(!active)}
-              className={router.pathname === "/technolodgy" ? "active" : ""}
+              className={router.pathname === "/Technology" ? "active" : ""}
             >
               <Link href="/Technology">
-                <a>TECHNOLODGY</a>
+                <a>TECHNOLOGY</a>
               </Link>
             </motion.li>
           </ol>
